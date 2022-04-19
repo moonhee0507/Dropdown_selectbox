@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>구현실습_Dropdown-selectbox</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto';
+    }
+
+    /* 버튼 초기화 */
+    button {
+      background: inherit; 
+      border:none; 
+      box-shadow:none; 
+      border-radius:0;
+      padding:0;
+      overflow:visible;
+      cursor:pointer;
+    }
+
+    .wrap {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px;
+      width: 200px;
+    }
+
+    .button-drop {
+      font-family: 'Roboto';
+      width: 100%;
+      text-align: left;
+      padding: 12px 13px;
+      border: 1px solid #C4C4C4;
+      border-radius: 10px;
+      box-sizing: border-box;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+
+      background-image: url(/images/icon-Triangle-down.png);
+      background-repeat: no-repeat;
+      background-size: 10px 10px;
+      background-position-x: 175px;
+      background-position-y: 14px;
+      cursor : pointer;
+      /* 공백을 만나도 감싸지 않고, 말줄임표 나오게 설정합니다 */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+    }
+
+    .button-drop:focus {
+      outline: 3px solid #f8e4ff;
+      border: 1px solid #9B51E0;
+    }
+
+    .button-drop:hover {
+      outline: 3px solid #f8e4ff;
+      border: 1px solid #9B51E0;
+    }
+
+    .content {
+      display: none;
+      width: 200px;
+      font-family: 'Roboto';
+      font-size: 14px;
+      color: #000000;
+      padding: 3px 0;
+      border: 1px solid #C4C4C4;
+      box-sizing: border-box;
+      box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      margin-top: 9px;
+    }
+
+    .content li {
+      margin: 5px 0;
+    }
+
+    .button-drop.on {
+      background-image: url(/images/icon-Triangle-up.png);
+    }
+
+    .button-drop.on + .content {
+      display: block;
+    }
+
+    .content li button {
+      display: block;
+      text-align: left;
+      padding-left: 17px;
+      width: 184px;
+      height: 30px;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      cursor: pointer;
+    }
+
+    /* 연보라색 박스의 범위가 .content로 제한됩니다 */
+    .content li button:hover {
+      background: #F8E4FF;
+      border-radius: 8px;
+      margin-left: 7px;
+      padding-left: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+  <article class="wrap">
+    <h1 class="hidden">가장 좋아하는 프로그래밍 언어를 선택해 주세요</h1>
+    <button type="button" class="button-drop on">최애 프로그래밍 언어</button>
+    <ul class="content">
+      <li><button type="button">Python</button></li>
+      <li><button type="button">Java</button></li>
+      <li><button type="button">JavaScript</button></li>
+      <li><button type="button">C#</button></li>
+      <li><button type="button">C/C++</button></li>
+    </ul>
+  </article>
+</body>
+</html>
