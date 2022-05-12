@@ -91,9 +91,9 @@
       background-image: url(./images/icon-Triangle-up.png);
     }
 
-    /* .button-drop.on + .content {
+    .button-drop.on + .content {
       display: block;
-    } */
+    }
 
     .content li button {
       display: block;
@@ -123,7 +123,7 @@
 <body>
   <article class="wrap">
     <h1 class="hidden">가장 좋아하는 프로그래밍 언어를 선택해 주세요</h1>
-    <button type="button" class="button-drop on">최애 프로그래밍 언어</button>
+    <button type="button" class="button-drop">최애 프로그래밍 언어</button>
     <ul class="content">
       <li class="li-lang"><button type="button" class="button-option">Python</button></li>
       <li class="li-lang"><button type="button" class="button-option">Java</button></li>
@@ -135,52 +135,33 @@
   <script>
     const dropdownBtn = document.querySelector(".button-drop");
     const content = document.querySelector(".content");
-    const langList = document.querySelector(".li-lang");
+    const langList = document.querySelectorAll(".li-lang");
     const optionBtn = document.querySelectorAll(".button-option");
 
-    // .button-drop(button태그의 클래스)를 클릭하면, .content(ul태그의 클래스)가 나온다
+    // .button-drop를 클릭하면, .content가 나온다
     dropdownBtn.addEventListener("click", function () {
-      content.classList.toggle(".on");
+      dropdownBtn.classList.toggle("on");
     });
 
     // li태그 중 하나를 선택하면, .content(ul태그의 클래스)가 사라진다
+    dropdownBtn.addEventListener("blur", function () {
+      dropdownBtn.classList.remove("on");
+      });
+      
     // 선택한 li태그가 .button-drop.on(button태그의 클래스)에 출력된다
+    optionBtn.forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          // 선택한 값 지정
+          const selectValue = e.currentTarget.textContent.trim();
+          // 지정 값 출력
+          dropdownBtn.textContent = selectValue;
+          // 색깔 변화
+          dropdownBtn.classList.add("selected");
+          // 버튼 생성
+          submit.removeAttribute("disabled");
+        });
+      });
 
-    // 레퍼런스
-    // 1. 'dropdownBtn'을 클릭하면, 'menuList'가 나온다. 
-    // - CSS의 dropdown-menu.show 활성화
-    // 2. 'itemList' 중 하나를 선택하면, 'menuList'는 사라진다.
-    // - toggle에서 remove 설정
-    // 3. 선택한 item이 input에 출력된다.
-    // - 선택 값 지정
-    // - 지정 값 출력
-    // - 디자인 변화 (CSS .selected 활성화)
-    // 4. 'submit' 버튼이 활성화된다.
-    // - button tag의 'disabled' attribute 제거
-
-    // // dropdownBtn 클릭하면, menuList 나온다
-    // dropdownBtn.addEventListener("click", function () {
-    //   menuList.classList.toggle("show");
-    // });
-
-    // // menuList는 사라진다
-    // dropdownBtn.addEventListener("blur", function () {
-    //   menuList.classList.remove("show");
-    // });
-
-    // // menuList 중 하나를 클릭하면,
-    // optionBtn.forEach(function (item) {
-    //   item.addEventListener("click", function (e) {
-    //     // 선택한 값 지정
-    //     const selectValue = e.currentTarget.textContent.trim();
-    //     // 지정 값 출력
-    //     dropdownBtn.textContent = selectValue;
-    //     // 색깔 변화
-    //     dropdownBtn.classList.add("selected");
-    //     // 버튼 생성
-    //     submit.removeAttribute("disabled");
-    //   });
-    // });
   </script>
 </body>
 </html>
