@@ -10,3 +10,4 @@
 
 ## 구현내용
 https://moonhee0507.github.io/Dropdown_selectbox/
+![드롭다운 정상작동](https://user-images.githubusercontent.com/102460056/168220738-cd17938f-fc90-4f9c-bf57-3bed3534f025.gif)
