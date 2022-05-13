@@ -14,7 +14,7 @@
       font-family: 'Roboto';
     }
 
-    /* 버튼 초기화 */
+    /* 버튼 스타일 초기화 */
     button {
       background: inherit; 
       border:none; 
@@ -52,11 +52,10 @@
       background-position-x: 175px;
       background-position-y: 14px;
       cursor : pointer;
-      /* 공백을 만나도 감싸지 않고, 말줄임표 나오게 설정합니다 */
+      /* 말줄임표 */
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
     }
 
     .button-drop:focus {
@@ -110,7 +109,6 @@
       cursor: pointer;
     }
 
-    /* 연보라색 박스의 범위가 .content로 제한됩니다 */
     .content li button:hover {
       background: #F8E4FF;
       border-radius: 8px;
@@ -138,29 +136,22 @@
     const langList = document.querySelectorAll(".li-lang");
     const optionBtn = document.querySelectorAll(".button-option");
 
-    // .button-drop를 클릭하면, .content가 나온다
+    // dropdownBtn을 클릭하면, content가 나온다(다시 클릭하면 content가 사라진다)
     dropdownBtn.addEventListener("click", function () {
       dropdownBtn.classList.toggle("on");
     });
-
-    // li태그 중 하나를 선택하면, .content(ul태그의 클래스)가 사라진다
-    dropdownBtn.addEventListener("blur", function () {
-      dropdownBtn.classList.remove("on");
-      });
       
-    // 선택한 li태그가 .button-drop.on(button태그의 클래스)에 출력된다
+    // optionBtn을 선택하면 dropdownBtn에 출력되고 content가 사라진다
     optionBtn.forEach(function (item) {
         item.addEventListener("click", function (e) {
           // 선택한 값 지정
-          const selectValue = e.currentTarget.textContent.trim();
+          const selectValue = e.target.textContent;
           // 지정 값 출력
           dropdownBtn.textContent = selectValue;
-          // 색깔 변화
-          dropdownBtn.classList.add("selected");
-          // 버튼 생성
-          submit.removeAttribute("disabled");
-        });
+          // content 사라짐
+          dropdownBtn.classList.remove("on");
       });
+    });
 
   </script>
 </body>
