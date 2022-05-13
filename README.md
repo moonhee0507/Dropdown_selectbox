@@ -6,7 +6,7 @@
 <li>드롭다운 셀렉트박스 구현</li>
 
 ## 일정
-<li>2022. 4. 19.(화) ~ </li>
+<li>2022. 4. 19.(화) ~ 5/13(금)</li>
 
 ## 구현내용
 https://moonhee0507.github.io/Dropdown_selectbox/
